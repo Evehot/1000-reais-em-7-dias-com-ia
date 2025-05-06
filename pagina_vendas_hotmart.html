@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Vendas: R$1.000 em 7 Dias com IA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #6A11CB; /* Roxo Vibrante */
+            --secondary-color: #2575FC; /* Azul Elétrico */
+            --accent-color: #FFDE59; /* Amarelo Dourado Brilhante */
+            --text-color-light: #F5F5F5;
+            --text-color-dark: #222222;
+            --bg-dark: #121212; /* Fundo escuro principal */
+            --bg-cards: #1E1E1E; /* Fundo para seções/cards */
+            --font-main: 'Roboto', sans-serif;
+            --font-headings: 'Poppins', sans-serif;
+        }
+
+        body {
+            font-family: var(--font-main);
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-dark);
+            color: var(--text-color-light);
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 80px 20px 60px;
+            text-align: center;
+            border-bottom-left-radius: 50px;
+            border-bottom-right-radius: 50px;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: -50px;
+            width: 200px;
+            height: 200px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            filter: blur(50px);
+        }
+        .hero-section h1 {
+            font-family: var(--font-headings);
+            font-size: 3em; /* Aumentado */
+            font-weight: 800;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+            color: white; /* Garantir cor branca */
+        }
+        .hero-section .subtitle {
+            font-size: 1.3em;
+            margin-bottom: 30px;
+            color: rgba(255,255,255,0.9);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .hero-image-container {
+            margin: 30px 0;
+        }
+        .hero-image-container img {
+            max-width: 100%;
+            width: 350px; /* Tamanho ajustado */
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border: 5px solid var(--accent-color);
+        }
+
+        /* General Section Styling */
+        section {
+            padding: 60px 0;
+        }
+        section h2 {
+            font-family: var(--font-headings);
+            font-size: 2.5em;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        section h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent-color);
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+
+        .content-box {
+            background-color: var(--bg-cards);
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            border-left: 5px solid var(--secondary-color);
+        }
+        .content-box h3 {
+            font-family: var(--font-headings);
+            font-size: 1.8em;
+            color: var(--accent-color);
+            margin-top: 0;
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        /* Lists (Benefits, Modules) */
+        .styled-list ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .styled-list li {
+            font-size: 1.1em;
+            margin-bottom: 15px;
+            padding-left: 35px;
+            position: relative;
+        }
+        .styled-list li::before {
+            content: '✔'; /* Pode ser um SVG ou ícone de fonte */
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-size: 1.5em;
+            font-weight: bold;
+            top: -3px;
+        }
+
+        /* Author Bio */
+        .author-bio {
+            text-align: center;
+            background-color: var(--bg-cards);
+            padding: 40px;
+            border-radius: 15px;
+            margin-top: 40px;
+        }
+        .author-bio img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid var(--accent-color);
+            margin-bottom: 20px;
+        }
+        .author-bio h3 {
+            color: var(--primary-color);
+            text-align:center;
+        }
+
+        /* Testimonials */
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        .testimonial {
+            background-color: var(--bg-cards);
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 4px solid var(--primary-color);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        .testimonial p {
+            font-style: italic;
+            margin-bottom: 15px;
+            color: var(--text-color-light);
+        }
+        .testimonial span {
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+            color: var(--accent-color);
+        }
+
+        /* Offer Section */
+        .offer-section {
+            background-color: var(--bg-cards);
+            padding: 50px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+        }
+        .offer-section .price-old {
+            font-size: 1.5em;
+            text-decoration: line-through;
+            color: #999;
+            margin-bottom: 5px;
+        }
+        .offer-section .price-new {
+            font-family: var(--font-headings);
+            font-size: 3.5em;
+            font-weight: 800;
+            color: var(--accent-color);
+            margin-bottom: 15px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+        }
+        .offer-section .cta-button {
+            display: inline-block;
+            padding: 20px 50px;
+            background: linear-gradient(135deg, var(--accent-color) 0%, #FFB300 100%);
+            color: var(--text-color-dark);
+            font-family: var(--font-headings);
+            font-size: 1.6em;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 50px;
+            margin-top: 20px;
+            box-shadow: 0 8px 20px rgba(255,222,89,0.4);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .offer-section .cta-button:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 12px 25px rgba(255,222,89,0.6);
+        }
+        .offer-section .secure-purchase-text {
+            font-size: 0.9em;
+            color: #bbb;
+            margin-top: 15px;
+        }
+
+        /* Guarantee */
+        .guarantee-section {
+            text-align: center;
+            padding: 40px;
+            margin-top: 50px;
+            border: 3px dashed var(--accent-color);
+            border-radius: 15px;
+            background-color: rgba(255,222,89,0.05);
+        }
+        .guarantee-section img {
+            width: 100px;
+            margin-bottom: 20px;
+        }
+        .guarantee-section h3 {
+            color: var(--accent-color);
+            font-size: 2em;
+        }
+
+        /* FAQ */
+        .faq-item {
+            background-color: var(--bg-cards);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            border-left: 3px solid var(--secondary-color);
+        }
+        .faq-item strong {
+            display: block;
+            font-family: var(--font-headings);
+            font-size: 1.3em;
+            color: var(--primary-color);
+            margin-bottom: 8px;
+        }
+
+        /* Footer CTA */
+        .footer-cta-section {
+            background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
+            padding: 60px 20px;
+            text-align: center;
+            margin-top: 50px;
+            color: white;
+        }
+        .footer-cta-section h2 {
+            color: white;
+        }
+        .footer-cta-section .cta-button {
+             background: linear-gradient(135deg, var(--accent-color) 0%, #FFB300 100%);
+             color: var(--text-color-dark);
+        }
+
+        /* Helper for images */
+        .responsive-img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        .centered-img-container {
+            text-align: center;
+            margin: 30px 0;
+        }
+        .centered-img-container img {
+            max-width: 70%;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+
+    </style>
+</head>
+<body>
+
+    <header class="hero-section">
+        <div class="container">
+            <h1>🔥 Descubra Como Faturar R$1.000 em Apenas 7 Dias Usando Inteligência Artificial – Mesmo Que Você Seja Um Completo Iniciante e Não Saiba Nada de Programação! 🔥</h1>
+            <p class="subtitle">Chegou a sua vez de transformar a tecnologia mais revolucionária do momento em uma fonte de renda rápida e descomplicada. Este guia prático é o seu atalho!</p>
+            <div class="hero-image-container">
+                <!-- Substituir pelo caminho da imagem da capa do e-book -->
+                <img src="./sales_page_images/ebook_cover_final.png" alt="E-book R$1.000 em 7 Dias com IA">
+            </div>
+            <a href="#oferta" class="offer-section cta-button" style="font-size: 1.3em; padding: 15px 40px;">QUERO ACESSO IMEDIATO!</a>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <section class="problem-section">
+            <h2>Sua Realidade Financeira Parece Travada?</h2>
+            <div class="content-box styled-list">
+                <h3>Você se identifica com alguma destas situações?</h3>
+                <ul>
+                    <li>Está cansado(a) de procurar formas de ganhar dinheiro online e só encontrar promessas vazias?</li>
+                    <li>Acha que precisa ser um gênio da tecnologia ou saber programar para lucrar com Inteligência Artificial?</li>
+                    <li>Precisa de uma renda extra RÁPIDA, mas não sabe por onde começar ou quais métodos realmente funcionam?</li>
+                    <li>Sente que está perdendo a onda da IA por achar que é complicado demais para você?</li>
+                </ul>
+                <p style="text-align: center; font-weight: bold; margin-top: 20px;">Se você respondeu SIM, este guia é a chave para virar o jogo!</p>
+            </div>
+        </section>
+
+        <div class="centered-img-container">
+             <img src="./sales_page_images/ia_mao_robo_dedo_futuro.jpeg" alt="Inteligência Artificial Transformando Vidas" class="responsive-img">
+        </div>
+
+        <section class="solution-section">
+            <h2>Apresento o Guia Definitivo: "R$1.000 em 7 Dias com IA"! 🚀</h2>
+            <div class="content-box">
+                <p>Este não é mais um curso teórico e complicado. É um <strong>mapa do tesouro prático e direto ao ponto</strong>, criado por Everton Rodrigues, que te guiará passo a passo para você gerar seus primeiros R$1.000 (ou mais!) em apenas uma semana utilizando o poder da Inteligência Artificial, sem precisar escrever uma única linha de código!</p>
+                <p>Esqueça a complexidade! Você vai descobrir métodos testados e validados que qualquer pessoa pode aplicar AGORA MESMO para ver resultados reais e rápidos.</p>
+            </div>
+        </section>
+
+        <section class="modules-section">
+            <h2>O Que Você Encontrará Dentro Deste Guia Transformador?</h2>
+            <div class="content-box styled-list">
+                <ul>
+                    <li><strong>Introdução à Revolução da IA:</strong> Entenda de forma simples como a IA está mudando o jogo e como VOCÊ pode se beneficiar disso AGORA.</li>
+                    <li><strong>Preparando o Terreno para o Sucesso:</strong> A mentalidade e as ferramentas gratuitas que você precisa para começar com o pé direito e atingir sua meta de R$1.000 em 7 dias.</li>
+                    <li><strong>Método 1: Criação de Conteúdo em Massa com IA:</strong> Aprenda a identificar nichos lucrativos, usar o ChatGPT para criar posts, artigos e e-mails de forma ultra-rápida e como prospectar clientes famintos por esse tipo de serviço. (Incluindo dicas de precificação e pacotes!)</li>
+                    <li><strong>Método 2: Micro-Serviços de IA Lucrativos:</strong> Descubra como oferecer serviços rápidos e de alto valor como legendagem de vídeos, transcrição de áudios, criação de resumos e slogans usando ferramentas de IA – e como cobrar por eles!</li>
+                    <li><strong>Método 3 (Opcional): Ideias Criativas com IA para Renda Extra:</strong> Explore a criação de prompts para imagens, consultoria básica de IA e avatares personalizados como fontes adicionais de faturamento.</li>
+                    <li><strong>Escalando Seus Ganhos e Indo Além dos R$1.000:</strong> Estratégias para conseguir depoimentos, criar pacotes de assinatura e transformar sua nova habilidade em uma fonte de renda consistente.</li>
+                    <li><strong>Conclusão e Próximos Passos:</strong> Um plano para você continuar crescendo e aproveitando as infinitas oportunidades da Inteligência Artificial.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="benefits-section">
+            <h2>Ao adquirir o "R$1.000 em 7 Dias com IA", Você Será Capaz De:</h2>
+            <div class="content-box styled-list">
+                 <ul>
+                    <li><strong>Gerar Renda Rápida:</strong> Métodos práticos para você ver o dinheiro entrando na sua conta em poucos dias.</li>
+                    <li><strong>Trabalhar de Onde Quiser:</strong> Liberdade para ganhar dinheiro usando apenas seu computador e acesso à internet.</li>
+                    <li><strong>Dominar Ferramentas de IA Gratuitas:</strong> Sem custos adicionais com softwares caros. Você usará o que já está disponível!</li>
+                    <li><strong>Oferecer Serviços de Alta Demanda:</strong> O mercado está desesperado por profissionais que saibam usar IA para resolver problemas.</li>
+                    <li><strong>Começar do Zero Absoluto:</strong> Não precisa de experiência prévia, conhecimento técnico ou habilidades de programação.</li>
+                    <li><strong>Economizar Tempo e Esforço:</strong> Deixe a IA fazer o trabalho pesado e foque em fechar negócios e lucrar.</li>
+                    <li><strong>Construir uma Nova Fonte de Renda Sólida:</strong> O que começa como R$1.000 em 7 dias pode se tornar sua principal fonte de renda!</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="author-section">
+            <div class="author-bio">
+                <img src="https://via.placeholder.com/150/FFFFFF/121212?text=Autor" alt="Foto de Everton Rodrigues">
+                <h3>Quem é Everton Rodrigues?</h3>
+                <p>Everton Rodrigues é um explorador de novas fronteiras digitais, apaixonado por simplificar o complexo. Ele acredita que a Inteligência Artificial não é apenas para gênios da tecnologia, mas uma ferramenta poderosa que, com o conhecimento certo, pode abrir portas para a independência financeira de qualquer pessoa disposta a aprender e aplicar. Neste guia, ele compartilha exatamente o que funciona, sem enrolação.</p>
+            </div>
+        </section>
+
+        <section class="testimonials-section">
+            <h2>Veja o Que Dizem os Primeiros Leitores (Placeholders):</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial">
+                    <p>"Eu não acreditava que seria possível, mas segui o passo a passo do Everton e em 5 dias já tinha faturado R$850! Incrível como a IA pode ser simples de usar para ganhar dinheiro."</p>
+                    <span>- Joana S., Dona de Casa</span>
+                </div>
+                <div class="testimonial">
+                    <p>"Estava desempregado e precisando de grana urgente. Comprei o e-book sem muita fé, mas os métodos são tão práticos que consegui meus primeiros R$300 em 48 horas oferecendo serviços de conteúdo com IA. Recomendo demais!"</p>
+                    <span>- Carlos P., Buscando Recolocação</span>
+                </div>
+                 <div class="testimonial">
+                    <p>"Finalmente um guia que vai direto ao ponto! Sem enrolação, só estratégias que funcionam. Já estou aplicando e vendo os resultados. Vale cada centavo!"</p>
+                    <span>- Mariana L., Empreendedora Digital</span>
+                </div>
+            </div>
+            <p style="text-align:center; margin-top:25px; font-style:italic;"><em>(Estes são exemplos. Você poderá adicionar depoimentos reais de seus clientes aqui!)</em></p>
+        </section>
+
+        <section id="oferta" class="offer-section">
+            <h2>Garanta Seu Acesso Imediato ao Futuro da Renda Online!</h2>
+            <p>Você está a um passo de desbloquear o potencial da Inteligência Artificial para transformar sua realidade financeira. Todo o conhecimento prático, os métodos testados e o passo a passo detalhado do e-book <strong>"R$1.000 em 7 Dias com IA"</strong> estão disponíveis por um investimento irrisório perto do retorno que você pode ter.</p>
+            
+            <p class="price-old">De R$67,00</p>
+            <p class="price-new">Por Apenas: R$19,90</p>
+            <p style="font-size:1.1em; color: var(--text-color-light);"><strong>(Oferta especial de lançamento por tempo LIMITADÍSSIMO!)</strong></p>
+            
+            <a href="#" class="cta-button">🔥 SIM, QUERO FATURAR R$1.000 EM 7 DIAS COM IA! 🔥</a>
+            <p class="secure-purchase-text">Compra 100% Segura | Acesso Imediato ao E-book em PDF</p>
+        </section>
+
+        <section class="guarantee-section">
+             <img src="https://via.placeholder.com/100/FFDE59/121212?text=GARANTIA" alt="Selo de Garantia">
+            <h3>Sua Satisfação Garantida ou Seu Dinheiro de Volta!</h3>
+            <p>Eu confio tanto no poder transformador deste guia que ofereço uma garantia incondicional de 7 dias. Se, por qualquer motivo, você não ficar satisfeito(a) com o conteúdo ou achar que ele não é para você, basta me enviar um e-mail dentro de 7 dias e eu devolverei 100% do seu investimento. Sem perguntas, sem burocracia. O risco é TODO MEU!</p>
+        </section>
+
+        <section class="faq-section">
+            <h2>Perguntas Frequentes (FAQ)</h2>
+            <div class="faq-item">
+                <strong>Preciso ter algum conhecimento técnico ou saber programar?</strong>
+                <p>Absolutamente NÃO! O guia foi desenhado especificamente para iniciantes e pessoas sem nenhum conhecimento técnico ou de programação. Todos os métodos utilizam ferramentas de IA intuitivas e de fácil aprendizado.</p>
+            </div>
+            <div class="faq-item">
+                <strong>Em quanto tempo terei acesso ao e-book após a compra?</strong>
+                <p>O acesso é imediato! Assim que seu pagamento for confirmado, você receberá um e-mail com o link para baixar o e-book em formato PDF.</p>
+            </div>
+            <div class="faq-item">
+                <strong>Os R$1.000 em 7 dias são garantidos?</strong>
+                <p>O e-book oferece métodos práticos e testados que têm o potencial de gerar esse valor ou até mais. No entanto, seus resultados dependerão da sua dedicação, esforço e aplicação correta das estratégias ensinadas. Não é uma promessa de ganho fácil, mas um guia para trabalho inteligente.</p>
+            </div>
+            <div class="faq-item">
+                <strong>Quais ferramentas de IA vou precisar? Elas são pagas?</strong>
+                <p>O guia foca principalmente em ferramentas de IA gratuitas ou com versões gratuitas robustas, como o ChatGPT, para que você possa começar sem custos adicionais.</p>
+            </div>
+             <div class="faq-item">
+                <strong>Por quanto tempo terei acesso ao e-book?</strong>
+                <p>Uma vez adquirido, o e-book é seu para sempre. Você poderá consultá-lo quantas vezes quiser.</p>
+            </div>
+        </section>
+
+    </div>
+
+    <footer class="footer-cta-section">
+        <div class="container">
+            <h2>Não Deixe Essa Oportunidade Escapar!</h2>
+            <p>A Inteligência Artificial já é uma realidade e está criando milionários. Chegou a sua hora de pegar uma fatia desse bolo, mesmo começando do zero. Adquira agora o seu guia "R$1.000 em 7 Dias com IA" e comece a transformar seu futuro financeiro HOJE MESMO!</p>
+            <a href="#oferta" class="cta-button">🔥 QUERO GARANTIR MINHA CÓPIA AGORA! 🔥</a>
+            <p style="font-size:0.8em; margin-top:20px; color: rgba(255,255,255,0.7);">Todos os direitos reservados © Everton Rodrigues</p>
+        </div>
+    </footer>
+
+</body>
+</html>
+
